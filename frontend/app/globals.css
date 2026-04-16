@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #5c4a32;
+  --brand-light: #8a7060;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Natural fiber badge colour helpers */
+.badge-natural { @apply bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded-full; }
+.badge-synthetic { @apply bg-gray-100 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full; }
