@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="border-b border-stone-200 bg-white">
+    <header className="border-b border-stone-200 bg-white sticky top-0 z-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight text-[var(--brand)]">
@@ -12,8 +12,8 @@ export default function Header() {
             <Link href="/" className="hover:text-[var(--brand)] transition-colors">
               Shop
             </Link>
-            <Link href="/admin" className="hover:text-[var(--brand)] transition-colors">
-              Admin
+            <Link href="/about" className="hover:text-[var(--brand)] transition-colors">
+              About
             </Link>
           </nav>
         </div>
