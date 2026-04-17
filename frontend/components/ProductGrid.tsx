@@ -1,16 +1,27 @@
+"use client";
+
 /**
  * ProductGrid — fetches and displays the paginated product list.
- * TODO: receive filter state from parent / URL params and pass to getProducts().
+ * Runs client-side so it works in both dev and production builds
+ * without needing the backend reachable at build time.
  */
 
+import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "@/lib/api";
+import type { ProductListResponse } from "@/types/product";
 
-export default async function ProductGrid() {
-  let data;
-  try {
-    data = await getProducts({ page: 1, pageSize: 24, minNaturalPercent: 70, inStock: true });
-  } catch {
+export default function ProductGrid() {
+  const [data, setData] = useState<ProductListResponse | null>(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    getProducts({ page: 1, pageSize: 24, minNaturalPercent: 70, inStock: true })
+      .then(setData)
+      .catch(() => setError(true));
+  }, []);
+
+  if (error) {
     return (
       <div className="py-20 text-center text-gray-400">
         <p className="text-lg">Could not load products.</p>
@@ -19,11 +30,21 @@ export default async function ProductGrid() {
     );
   }
 
+  if (!data) {
+    return (
+      <div className="py-20 text-center text-gray-400">
+        <p className="text-sm">Loading products…</p>
+      </div>
+    );
+  }
+
   if (data.products.length === 0) {
     return (
       <div className="py-20 text-center text-gray-400">
-        <p className="text-lg">No products found.</p>
-        <p className="text-sm mt-1">Import a CJ product feed CSV via the Admin page to get started.</p>
+        <p className="text-lg">No products yet.</p>
+        <p className="text-sm mt-1">
+          Import a CJ product feed CSV via the Admin page to get started.
+        </p>
       </div>
     );
   }
@@ -39,10 +60,8 @@ export default async function ProductGrid() {
         ))}
       </div>
 
-      {/* TODO: pagination controls */}
       {data.totalPages > 1 && (
         <div className="mt-8 flex justify-center gap-2 text-sm">
-          {/* Placeholder — replace with real pagination component */}
           <span className="text-gray-400">
             Page {data.page} of {data.totalPages}
           </span>
