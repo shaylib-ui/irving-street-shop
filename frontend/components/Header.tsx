@@ -10,8 +10,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Irving Street"
-              height={28}
-              width={160}
+              height={32}
+              width={200}
               className="object-contain"
               priority
             />
