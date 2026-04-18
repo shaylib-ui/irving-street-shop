@@ -31,18 +31,32 @@ const NATURAL_FIBERS = [
 export default function HomePage() {
   return (
     <div>
-      {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="rounded-2xl px-8 py-16 text-center mb-16 bg-white">
-        <p className="text-sm font-semibold uppercase tracking-widest text-[var(--brand-light)] mb-3">
+      {/* ── Hero — full-width, black bg + natural fibers photo at 70% opacity ── */}
+      <section
+        className="relative isolate overflow-hidden px-8 py-20 text-center mb-16"
+        style={{
+          backgroundColor: "#000",
+          marginLeft: "calc(50% - 50vw)",
+          marginRight: "calc(50% - 50vw)",
+          marginTop: "-2.5rem",
+        }}
+      >
+        {/* Background image at 70% opacity */}
+        <div
+          className="absolute inset-0 -z-10 bg-center bg-cover"
+          style={{ backgroundImage: "url('/hero-bg.png')", opacity: 0.7 }}
+          aria-hidden="true"
+        />
+        <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "rgba(255,255,255,0.8)" }}>
           Natural fiber clothing
         </p>
         <h1
-          className="font-bold tracking-tight text-gray-900 max-w-3xl mx-auto"
+          className="font-bold tracking-tight text-white max-w-3xl mx-auto"
           style={{ fontSize: "20pt", lineHeight: 1.0 }}
         >
           Irving Street curates clothing from trusted retailers — filtered so
-          that every item shown is made from at least 70% natural fiber.
-          {"\n"}No guesswork. No greenwashing.
+          that every item shown is made from at least 70% natural fiber.{" "}
+          No guesswork. No greenwashing.
         </h1>
       </section>
 
