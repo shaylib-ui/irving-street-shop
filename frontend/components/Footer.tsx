@@ -6,7 +6,6 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
 
-          {/* Brand */}
           <div>
             <p className="text-base font-bold text-[var(--brand)]">Irving Street</p>
             <p className="mt-2 text-xs text-gray-500 leading-relaxed">
@@ -15,22 +14,16 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Site links */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">
-              Site
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Site</p>
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="text-gray-500 hover:text-[var(--brand)] transition-colors">Shop</Link></li>
               <li><Link href="/about" className="text-gray-500 hover:text-[var(--brand)] transition-colors">About</Link></li>
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">
-              Legal
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Legal</p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/affiliate-disclosure" className="text-gray-500 hover:text-[var(--brand)] transition-colors">
@@ -52,7 +45,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-8 border-t border-stone-100 pt-6 flex flex-wrap gap-3 items-center justify-between text-xs text-gray-400">
           <p>&copy; {new Date().getFullYear()} Irving Street. All rights reserved.</p>
           <p>

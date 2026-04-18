@@ -9,7 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand palette — earthy, natural tones
         stone: {
           50: "#fafaf9",
           100: "#f5f5f4",
@@ -20,7 +19,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Verdana", "Geneva", "Tahoma", "sans-serif"],
+        sans: ["Montserrat", "system-ui", "sans-serif"],
       },
     },
   },

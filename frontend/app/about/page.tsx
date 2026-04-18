@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,13 +11,22 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900 mb-2">About Irving Street</h1>
-      <p className="text-gray-500 mb-10 text-sm">Last updated: April 2026</p>
+      <div className="space-y-8 text-gray-700 leading-relaxed">
 
-      <div className="prose prose-stone max-w-none space-y-8 text-gray-700 leading-relaxed">
+        {/* Banner image */}
+        <div className="aspect-[1000/356] w-full overflow-hidden rounded-xl bg-stone-100">
+          <Image
+            src="/irving-street-banner.png"
+            alt="Irving Street — Shop Real"
+            width={1000}
+            height={356}
+            className="h-full w-full object-contain"
+            priority
+          />
+        </div>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Our mission</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">OUR MISSION</h2>
           <p>
             Irving Street exists to make it easier to find clothing made from natural fibers.
             Browsing online for a cotton shirt or a wool sweater sounds simple — but in practice
@@ -32,24 +42,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">How we build our catalog</h2>
-          <p>
-            We source product listings from retailers through the{" "}
-            <strong>CJ Affiliate network</strong>, one of the largest and most established
-            affiliate platforms. When a retailer shares their product feed, we parse the
-            material composition field of every item and calculate what percentage of the fabric
-            is composed of natural fibers — cotton, wool, linen, silk, hemp, cashmere, alpaca,
-            bamboo, jute, and others.
-          </p>
-          <p className="mt-3">
-            Products that pass the 70% threshold are added to our catalog with their fiber
-            breakdown displayed clearly on the product card. Products that don&rsquo;t pass are
-            discarded automatically — no exceptions.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">What we are — and aren&rsquo;t</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">How it works</h2>
           <p>
             Irving Street is a <strong>curated directory</strong>, not a retailer. We
             don&rsquo;t sell anything directly. When you click through to a product, you land on
@@ -62,20 +55,8 @@ export default function AboutPage() {
           <p className="mt-3">
             We don&rsquo;t accept payment to feature products, and the 70% natural fiber
             threshold is applied equally to every item regardless of which retailer it comes from.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">Why natural fibers?</h2>
-          <p>
-            We&rsquo;re not here to lecture — the reasons people prefer natural fibers are
-            personal and varied. Some people have sensitive skin that reacts to synthetic
-            materials. Others prefer the way natural textiles wear and age. Some are motivated
-            by the fact that natural fibers are biodegradable and generally have a different
-            environmental profile than petroleum-derived fabrics.
-          </p>
-          <p className="mt-3">
-            Whatever your reason, our goal is simply to make it easier to act on that preference.
+            We filter for cotton, wool, linen, silk, hemp, cashmere, alpaca, bamboo, jute, and
+            others, and clearly show fiber composition in each product listing.
           </p>
         </section>
 
